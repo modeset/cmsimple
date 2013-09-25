@@ -38,7 +38,7 @@ RSpec.configure do |config|
 
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
-    require 'integration/support/active_controller'
+    require 'integration/support/action_controller'
   end
 
   config.before(:each) do
