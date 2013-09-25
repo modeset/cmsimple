@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "cells"
   s.add_runtime_dependency "carrierwave"
 
+  s.add_runtime_dependency "coffee-script-source"
   s.add_runtime_dependency "haml"
   s.add_runtime_dependency "haml-rails"
   s.add_runtime_dependency "haml_coffee_assets", "~> 0.9.2"
@@ -29,8 +30,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rest-client"
 
   # specify any dependencies here; for example:
-  s.add_development_dependency "rspec-rails", "~> 2.12.2"
-  s.add_development_dependency "capybara", "~> 1.1.3"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "selenium-webdriver"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "timecop"

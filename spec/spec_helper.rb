@@ -4,6 +4,10 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'timecop'
+require 'capybara'
+require 'capybara/rspec'
+require 'selenium-webdriver'
+require 'site_prism'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
