@@ -38,6 +38,7 @@ RSpec.configure do |config|
 
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
+    Capybara.default_driver = :selenium
     require 'integration/support/action_controller'
   end
 

@@ -1,29 +1,22 @@
 require_relative 'editor'
+require_relative 'edit_page_actions'
+
 class EditPage < SitePrism::Page
-  element :save_button,            '.mercury-save-button'
-  element :publish_button,         '.mercury-publish-button'
-  element :confirm_publish_button, 'form.edit_page input.btn-primary'
+  include EditPageActions
 
   set_url "/editor{/slug}"
 
-  iframe :editor, Editor, '#mercury_iframe'
+  element :save_button,            '.mercury-save-button'
+  element :publish_button,         '.mercury-publish-button'
+  element :sitemap_button,         '.mercury-sitemap-button'
+  element :page_info_button,       '.mercury-editMetadata-button'
+  element :confirm_publish_button, 'form.edit_page input.btn-primary'
 
-  def edit_content(content="")
-    wait_for_editor(5)
-    e = Editable.new(page, '#editable')
-    e.execute_script <<-JAVASCRIPT
-      var region = document.getElementById('mercury_iframe').contentDocument.getElementById('editable1');
-      region.innerHTML = '#{content}';
-    JAVASCRIPT
-    save_button.click
-    publish_button.click
-    wait_for_confirm_publish_button
-  end
+  iframe   :editor,         Editor,       '#mercury_iframe'
 
-  def publish_changes
-    confirm_publish_button.click
-    wait_until_confirm_publish_button_invisible
-    wait_for_editor(5)
-  end
+  section  :new_page_form,  PageForm,     '#new_page'
+  section  :edit_page_form, PageForm,     'form'
+  sections :mercury_panels, MercuryPanel, '.mercury-panel'
 
 end
+

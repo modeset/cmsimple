@@ -1,6 +1,6 @@
 # gives us more visibility in the stack trace in the log if something goes wrong
 ActionController::Base.class_eval do
-  puts 'getting loaded'
+  puts 'Monkey Patching ActionController to give us stack traces in the test log; functionality copied from Cucumber'
   cattr_accessor :allow_rescue
 end
 
