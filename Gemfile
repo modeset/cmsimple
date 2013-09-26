@@ -14,5 +14,12 @@ group :assets do
   gem 'uglifier'
 end
 
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'site_prism', github: 'natritmeyer/site_prism'
+end
+
 # Specify your gem's dependencies in ..gemspec
 gemspec
